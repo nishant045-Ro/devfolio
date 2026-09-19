@@ -8,8 +8,8 @@ export const site = {
   tagline: 'Building, Learning, and Growing Through Code.',
   description:
     "I'm a BCA student passionate about building web applications, backend systems and modern interactive experiences.",
-  email: 'nishantpoudel06@gmail.com',
-  location: 'Kathmandu, Nepal',
+  email: 'nishantpoudel36@gmail.com',
+  location: 'Nawalpur, Nepal',
   githubUsername: 'nishant045-Ro',
   githubUrl: 'https://github.com/nishant045-Ro',
   linkedinUrl: 'https://www.linkedin.com/in/nishant-poudel-91825b419/',
