@@ -5,6 +5,7 @@ import { socialLinks } from '../data/socialLinks'
 import SocialLinks from '../components/SocialLinks'
 import HeroTerminal from '../components/HeroTerminal'
 import { useRotatingText } from '../hooks/useRotatingText'
+import profileImg from '../assets/profile.jpg'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -136,7 +137,56 @@ export function Hero({ ready = true }) {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="relative mx-auto w-full max-w-lg"
         >
-          <HeroTerminal start={ready} />
+          <div className="relative">
+            <div
+              aria-hidden
+              className="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-tr from-brand/30 via-pink-400/10 to-sky-400/30 blur-3xl"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="animate-float relative overflow-hidden rounded-3xl border border-line bg-panel p-2.5 shadow-2xl"
+            >
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src={profileImg}
+                  alt={`${site.name} — profile photo`}
+                  className="aspect-[4/5] w-full max-h-[440px] object-cover"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+              </div>
+              <div className="absolute inset-x-4 bottom-4 flex items-center gap-3 rounded-2xl border border-line bg-ink/70 p-3 backdrop-blur-md">
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-sky-400 font-display text-sm font-bold text-white">
+                  {site.firstName.charAt(0)}
+                  {site.name.split(' ').pop()?.charAt(0)}
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate font-display text-sm font-semibold text-fg">{site.name}</p>
+                  <p className="truncate text-xs text-mut">{site.role}</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8, type: 'spring', stiffness: 260, damping: 18 }}
+              className="absolute -top-4 -right-2 sm:-right-4"
+            >
+              <span className="animate-float flex items-center gap-2 rounded-xl border border-line bg-panel/90 px-3 py-1.5 text-xs font-semibold text-emerald-400 backdrop-blur-md">
+                <span className="relative flex size-2">
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
+                </span>
+                Open to work
+              </span>
+            </motion.div>
+          </div>
+
+          <div className="mt-8">
+            <HeroTerminal start={ready} />
+          </div>
         </motion.div>
       </div>
 
